@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Time</title>
+</head>
+<style>
+    *{
+
+        padding: 0;
+        margin: 0;
+    }
+    body{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        /* align-items: center; */
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: black;
+        overflow: none;
+        color: white;
+        box-sizing: border-box;
+        text-align: center;
+    }
+    h1{ 
+        border-radius: 0px 0px 10px 10px;
+        color: white;
+        padding: 10px 10px;
+        background-color: rgb(21, 21, 21);
+    }
+    #para{
+        margin: 100px;
+        font-size: 90px;
+    }
+    button:hover{
+        background-color: rgb(21, 21, 21);
+        color: aliceblue;
+        border: 1px solid white;
+    }
+    button{
+        align-items: center;
+        font-size: 30px;
+        margin: auto;
+        position: block;
+        padding: 10px 20px;
+        border-radius: 5px;
+        border: 1px solid white;
+        transition: 0.2s ease-in-out;
+        background-color: aliceblue;
+        outline: none;
+        cursor: pointer;
+        border: none;
+    }
+    #hid-btn{
+        display: none;
+    }
+</style>
+<body>
+    <div class="container">
+        <h1 id="heading">TimeRightNow.com</h1>
+        <p id="para">Click here to view the time!</p>
+        <button id="btn" onclick="showTime()">Click here</button>
+        <button id="hid-btn" onclick="hidTime()">Hide Clock</button>
+    </div>
+<script>
+    let isTimeVisible = false;
+    const para = document.getElementById('para');
+    const btn = document.getElementById('btn');
+    const btn2 = document.getElementById('hid-btn');
+    function showTime(){
+
+        let now = new Date();
+                let hr = now.getHours();
+                let min = now.getMinutes();
+                let sec = now.getSeconds();
+            btn2.style.display = 'block'
+            para.style.fontWeight = '900';
+            para.style.fontSize = '200px';
+            isTimeVisible = true;
+            para.innerHTML = hr + " : " + min ;
+            btn.style.display = 'none';
+        
+       
+        
+    }
+    function hidTime(){
+        para.style.fontWeight = 'normal';
+        para.style.fontSize = '90px';
+        para.innerHTML = "Click here to view the time!";
+        isTimeVisible = false;  
+        btn.style.display = 'block';
+        btn2.style.display = 'none';
+    }
+    
+</script>
+</body>
+</html>
